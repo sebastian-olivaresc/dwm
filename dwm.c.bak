@@ -60,7 +60,7 @@
 
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
-enum { SchemeNorm, SchemeSel, SchemeUrg }; /* color schemes */
+enum { SchemeNorm, SchemeSel }; /* color schemes */
 enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
        NetWMWindowTypeDialog, NetClientList, NetLast }; /* EWMH atoms */
@@ -1740,10 +1740,8 @@ sigchld(int unused)
 void
 spawn(const Arg *arg)
 {
-    /*
 	if (arg->v == dmenucmd)
 		dmenumon[0] = '0' + selmon->num;
-        */
 	if (fork() == 0) {
 		if (dpy)
 			close(ConnectionNumber(dpy));
