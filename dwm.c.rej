@@ -1,0 +1,20 @@
+--- dwm.c
++++ dwm.c
+@@ -650,6 +661,7 @@ createmon(void)
+ 	m->nmaster = nmaster;
+ 	m->showbar = showbar;
+ 	m->topbar = topbar;
++	m->bh = bh;
+ 	m->lt[0] = &layouts[0];
+ 	m->lt[1] = &layouts[1 % LENGTH(layouts)];
+ 	strncpy(m->ltsymbol, layouts[0].symbol, sizeof m->ltsymbol);
+@@ -712,6 +729,9 @@ dirtomon(int dir)
+ void
+ drawbar(Monitor *m)
+ {
++	if (usealtbar)
++		return;
++
+ 	int x, w, tw = 0;
+ 	int boxs = drw->fonts->h / 9;
+ 	int boxw = drw->fonts->h / 6 + 2;
